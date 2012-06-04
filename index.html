@@ -42,8 +42,11 @@ function init() {
    // Create the MapQuest tile layer
    var mapquestURL = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png';
    var mapquestLayer = new L.TileLayer(mapquestURL, {
-      subdomains  : ['otile1', 'otile2', 'otile3', 'otile4'],
-   });
+      subdomains  : ['otile1', 'otile2', 'otile3', 'otile4']});
+   
+   // OrbView imagery
+   var orbURL = 'http://osm.arkemie.org/cgi-bin/tiles/1.0.0/philippines/{z}/{x}/{y}.png';
+   var orbLayer = new L.TileLayer(orbURL);
 
    // Bing
 
@@ -107,7 +110,9 @@ function init() {
    var tilesLayers = {
       "Bing Aerial": BingAerialWithLabels,
       "OSM Mapnik" : osmLayer,
-      "MapQuest"   : mapquestLayer
+      "MapQuest"   : mapquestLayer,
+      "osm.arkemie.org"    : orbLayer,
+   
    };
 
    // Add layer control to map   
